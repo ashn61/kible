@@ -6,6 +6,7 @@ import 'package:provider/provider.dart';
 
 import '../../core/theme/app_colors.dart';
 import '../../providers/qibla_provider.dart';
+import '../../services/qibla_service.dart';
 import '../../widgets/common.dart';
 import 'widgets/compass_dial.dart';
 
@@ -151,6 +152,18 @@ class _QiblaScreenState extends State<QiblaScreen> {
             color: aligned ? AppColors.gold : AppColors.beigeMuted,
           ),
         ),
+        if (heading != null) ...[
+          const SizedBox(height: 4),
+          Text(
+            'Cihaz yönü ${((heading % 360 + 360) % 360).round()}° · '
+            '${QiblaService.directionName(heading)}',
+            style: TextStyle(
+              fontSize: 12,
+              color: AppColors.beigeMuted,
+              fontFeatures: const [FontFeature.tabularFigures()],
+            ),
+          ),
+        ],
       ],
     );
   }
