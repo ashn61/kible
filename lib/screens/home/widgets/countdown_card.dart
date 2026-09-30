@@ -49,9 +49,11 @@ class CountdownCard extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          // Şu anki vakit sola, sıradaki vakit sağ kenara yaslı.
           Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Expanded(
+              Flexible(
                 child: _Label(
                   caption: 'Şu anki vakit',
                   value: current?.type.label ?? '—',
