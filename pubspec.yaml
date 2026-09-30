@@ -1,0 +1,49 @@
+name: kible
+description: "Kıble — Her vakit, huzura bir adım. Namaz vakitleri ve kıble pusulası."
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.6.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # State yönetimi
+  provider: ^6.1.2
+  # Ağ istekleri
+  http: ^1.2.2
+  # Tarih biçimlendirme (Türkçe)
+  intl: ^0.20.2
+  # Seçilen ilçe ve çevrimdışı önbellek
+  shared_preferences: ^2.3.3
+  # Kıble: konum ve pusula
+  geolocator: ^14.1.1
+  flutter_compass: ^0.8.1
+  flutter_local_notifications: ^22.3.1
+  timezone: ^0.11.1
+  home_widget: ^0.10.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+  flutter_launcher_icons: ^0.14.4
+
+flutter:
+  uses-material-design: true
+
+# `dart run flutter_launcher_icons` ile üretilir (kaynak: assets/icon/kible_icon.svg)
+flutter_launcher_icons:
+  image_path: assets/icon/icon.png
+  android: true
+  ios: true
+  remove_alpha_ios: true
+  adaptive_icon_background: assets/icon/icon.png
+  adaptive_icon_foreground: assets/icon/transparent.png
+  web:
+    generate: true
+    image_path: assets/icon/icon.png
+    background_color: "#0B2D3B"
+    theme_color: "#0B2D3B"

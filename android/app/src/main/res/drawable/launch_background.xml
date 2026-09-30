@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Açılış ekranı: Kıble lacivert zemin (Android 12+ ikonu sistem ekler). -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@color/kible_navy" />
+</layer-list>

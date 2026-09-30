@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0B2D3B"/>
+      <stop offset="0.45" stop-color="#113A4B"/>
+      <stop offset="0.62" stop-color="#4E5A3E"/>
+      <stop offset="0.72" stop-color="#C08F2E"/>
+      <stop offset="0.80" stop-color="#E0A93A"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="512" cy="700" r="380" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#F5C24A" stop-opacity="0.75"/>
+      <stop offset="1" stop-color="#F5C24A" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="sun" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#F6CF55"/>
+      <stop offset="1" stop-color="#E6AE2E"/>
+    </linearGradient>
+    <linearGradient id="hill" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#4A4428"/>
+      <stop offset="0.35" stop-color="#2C2C22"/>
+      <stop offset="1" stop-color="#171D22"/>
+    </linearGradient>
+    <mask id="crescent">
+      <rect width="1024" height="1024" fill="black"/>
+      <circle cx="740" cy="250" r="74" fill="white"/>
+      <circle cx="772" cy="222" r="64" fill="black"/>
+    </mask>
+    <filter id="soft"><feGaussianBlur stdDeviation="14"/></filter>
+  </defs>
+  <rect width="1024" height="1024" fill="url(#sky)"/>
+  <rect width="1024" height="1024" fill="url(#glow)"/>
+  <circle cx="300" cy="190" r="27.0" fill="#F7F5EF" opacity="0.17" filter="url(#soft)"/>
+  <path d="M300,160 Q306.6,183.4 330,190 Q306.6,196.6 300,220 Q293.4,196.6 270,190 Q293.4,183.4 300,160 Z" fill="#F7F5EF" opacity="0.95"/>
+  <circle cx="560" cy="330" r="18.0" fill="#F7F5EF" opacity="0.13" filter="url(#soft)"/>
+  <path d="M560,310 Q564.4,325.6 580,330 Q564.4,334.4 560,350 Q555.6,334.4 540,330 Q555.6,325.6 560,310 Z" fill="#F7F5EF" opacity="0.7"/>
+  <circle cx="512" cy="705" r="158" fill="url(#sun)"/>
+  <circle cx="512" cy="1520" r="830" fill="url(#hill)"/>
+  <circle cx="512" cy="1520" r="830" fill="none" stroke="#F2C14E" stroke-width="7" stroke-opacity="0.9"/>
+  <rect width="1024" height="1024" fill="#D4AF37" mask="url(#crescent)"/>
+</svg>

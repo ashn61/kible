@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Durum çubuğu ikonu: ufuktan doğan güneş ve hilal (tek renk). -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M6,17a6,6 0,0 1,12 0z" />
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M2,18.5h20v1.5h-20z" />
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M18.5,3a3.5,3.5 0,1 0,2.8 5.6a2.8,2.8 0,1 1,-2.8 -5.6z" />
+</vector>
