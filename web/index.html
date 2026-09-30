@@ -33,7 +33,28 @@
 
   <title>Kıble</title>
   <style>
-    html, body { margin: 0; height: 100%; overflow: hidden; overscroll-behavior: none; background: #0B2D3B; }
+    html, body {
+      margin: 0;
+      height: 100%;
+      overflow: hidden;
+      overscroll-behavior: none;
+      -webkit-tap-highlight-color: transparent;
+      -webkit-user-select: none;
+      user-select: none;
+      /* Üst yarı: durum çubuğu arkası (degradenin üst rengi),
+         alt yarı: ana ekran çizgisi arkası (alt menü rengi). */
+      background: linear-gradient(#0F3A4B 0 50%, #1F2937 50% 100%);
+    }
+    /* Uygulama, cihazın güvenli alanının içinde çizilir. */
+    #app {
+      position: fixed;
+      top: env(safe-area-inset-top, 0px);
+      right: env(safe-area-inset-right, 0px);
+      bottom: env(safe-area-inset-bottom, 0px);
+      left: env(safe-area-inset-left, 0px);
+      background: #0B2D3B;
+      touch-action: none;
+    }
   </style>
   <link rel="manifest" href="manifest.json">
 </head>
@@ -46,6 +67,7 @@
     For more details:
     * https://docs.flutter.dev/platform-integration/web/initialization
   -->
+  <div id="app"></div>
   <script src="flutter_bootstrap.js" async></script>
 </body>
 </html>
