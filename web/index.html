@@ -33,29 +33,60 @@
 
   <title>Kıble</title>
   <style>
+    /* Kök arka plan DÜZ renk olmalı: iOS ana ekran uygulamasında belge
+       kutusunun dışında kalan her yer de bu renge boyanır (beyaz şerit yok). */
     html, body {
       margin: 0;
       height: 100%;
       overflow: hidden;
       overscroll-behavior: none;
+      background-color: #1F2937;
       -webkit-tap-highlight-color: transparent;
       -webkit-user-select: none;
       user-select: none;
-      /* Üst yarı: durum çubuğu arkası (degradenin üst rengi),
-         alt yarı: ana ekran çizgisi arkası (alt menü rengi). */
-      background: linear-gradient(#0F3A4B 0 50%, #1F2937 50% 100%);
     }
-    /* Uygulama, cihazın güvenli alanının içinde çizilir. */
+    /* Durum çubuğunun (çentik / Dynamic Island) arkası: uygulamanın üst rengi. */
+    #status-fill {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: calc(env(safe-area-inset-top, 0px) + 1px);
+      background-color: #0F3A4B;
+    }
+    /* Uygulama güvenli alanın içinde çizilir. Yükseklik --app-height ile
+       verilir (iOS ana ekran modunda JS ile gerçek ekran yüksekliği). */
     #app {
       position: fixed;
       top: env(safe-area-inset-top, 0px);
-      right: env(safe-area-inset-right, 0px);
-      bottom: env(safe-area-inset-bottom, 0px);
       left: env(safe-area-inset-left, 0px);
-      background: #0B2D3B;
+      right: env(safe-area-inset-right, 0px);
+      height: calc(var(--app-height, 100dvh)
+        - env(safe-area-inset-top, 0px)
+        - env(safe-area-inset-bottom, 0px));
+      background-color: #0B2D3B;
       touch-action: none;
     }
   </style>
+  <script>
+    // iOS'ta ana ekrana eklenen uygulamada (standalone) yarı saydam durum
+    // çubuğuyla birlikte innerHeight / 100% yükseklik, durum çubuğu kadar kısa
+    // gelir. Bu modda gerçek ekran yüksekliğini kullan.
+    (function () {
+      function update() {
+        var iosStandalone = window.navigator.standalone === true;
+        var portrait = window.innerHeight >= window.innerWidth;
+        var screenH = portrait
+          ? Math.max(screen.width, screen.height)
+          : Math.min(screen.width, screen.height);
+        var h = iosStandalone ? Math.max(window.innerHeight, screenH) : window.innerHeight;
+        document.documentElement.style.setProperty('--app-height', h + 'px');
+      }
+      update();
+      window.addEventListener('resize', update);
+      window.addEventListener('orientationchange', function () { setTimeout(update, 300); });
+    })();
+  </script>
   <link rel="manifest" href="manifest.json">
 </head>
 <body>
@@ -67,6 +98,7 @@
     For more details:
     * https://docs.flutter.dev/platform-integration/web/initialization
   -->
+  <div id="status-fill"></div>
   <div id="app"></div>
   <script src="flutter_bootstrap.js" async></script>
 </body>
